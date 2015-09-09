@@ -1,0 +1,26 @@
+{
+  "name": "USI-Web-Atelier-Slides-Common",
+  "private": "true",
+  "version": "0.1.0",
+  "authors": [
+    "Cesare Pautasso",
+    "Vasileios Triglianos"
+  ],
+  "description": "Common assets for USI Web Atelier Presentations.",
+  "main": "js/main.js",
+  "keywords": [
+    "USI",
+    "Web Atelier"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}
