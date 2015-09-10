@@ -121,21 +121,21 @@ if ((document.location.href).indexOf("?edit/") === -1) {
 		}
 	}
 
-	var _width = $(window).width();
-	var _height = $(window).height();
+	var _width = window.innerWidth;
+	var _height = window.innerHeight;
 	var container = document.getElementById('canvas');
 
 	document.addEventListener("keyup", function(event) {
 		if (event.keyCode === 67) {
 			if (activeCanvas) {
 				ctx.clearTo();
-				$('#canvas').hide();
+				container.style.display = "none";
 				activeCanvas = !activeCanvas;
 			} else {
 				if (ctx === undefined) {
 					init(container, _width, _height, '#ddd');
 				}
-				$('#canvas').show();
+				container.style.display = "block";
 				activeCanvas = !activeCanvas;
 			}
 		}
