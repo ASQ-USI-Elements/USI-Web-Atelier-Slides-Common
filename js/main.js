@@ -3,13 +3,16 @@
 
   var iAPI = impress();
 
-  //svgs
+
+  // if we're not in print mode start impress
+  if ( !window.location.search.match(/print/) ) {
+
+
+  //and inject svgs
   var mySVGsToInject = document.querySelectorAll('img.svg');
   SVGInjector(mySVGsToInject);
 
 
-  // if we're not in print mode start impress
-  if ( !window.location.search.match(/print/) ) {
   	if (impress) {
   		impress().init();
 
