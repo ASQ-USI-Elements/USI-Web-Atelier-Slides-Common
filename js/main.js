@@ -1,9 +1,6 @@
 (function () {
   'use strict';
 
-  var iAPI = impress();
-
-
   // if we're not in print mode start impress
   if ( !window.location.search.match(/print/) ) {
 
@@ -14,13 +11,21 @@
 
 
   	if (impress) {
-  		impress().init();
+      try{
+        impress().init();
+      }catch(e){
+        //no impress maybe we are in ASQ
+      }
 
       //on ESC go to overview
       document.addEventListener("keydown", function ( event ) {
         if ( event.keyCode == 27 ) {
             event.preventDefault();
-            impress().goto("overview");
+            try{
+              impress().goto("overview");
+            }catch(e){
+              //no impress maybe we are in ASQ
+            }
           }
       }, false);          
   	}
