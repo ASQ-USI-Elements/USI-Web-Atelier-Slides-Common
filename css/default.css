@@ -502,7 +502,7 @@ rect:hover {stroke:#fff;}
 
 @media print {
   body { text-shadow: none; }
-  body pre code { color: #000; border: #000 dotted 1px; }
+  body pre { color: #000; border: #000 dotted 1px; }
   body pre code b { color: #000; }
   .wrap { height: auto; }
   div.step.break { page-break-before: always; }
@@ -513,19 +513,23 @@ rect:hover {stroke:#fff;}
   h2 { font-size: 0.9em; margin-top: 0}
   h3 { font-size: 0.8em; margin-bottom: 0}
   .step div.counter {
-  position: absolute;
-  float:right;
-  top: -2em;
-  right: 0;
-  font-size: 12px;
-  opacity: 0.5;
-}
+    position: absolute;
+    float:right;
+    top: -2em;
+    right: 0;
+    font-size: 12px;
+    opacity: 0.5;
+  }
 	#refs { font-size: 1em }
 	a { color: rgb(0, 67, 148) }
-	#refs a:after {
-  content: " (" attr(href) ") ";
-  font-size: 90%;
-}
+	a:after {
+    content: " (" attr(href) ") ";
+    font-size: 90%; 
+  }
+  #title a:after {
+    content: "";
+  }
+
 }
 
 
