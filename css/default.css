@@ -124,15 +124,23 @@ p.ref { font-size: 0.6em; border-top: #002570 solid 1px; padding-top:5px; margin
 div.smaller p.small { font-size: 0.6em; }
 pre { font-size: 0.6em; margin: 0.3em 0; }
 body pre {
-  background: rgba(0, 0, 0, 0.8);
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
   padding: 1px;
-  box-shadow: 0px 0px 64px 8px rgba(168,191,230,0.5);
 }
+
+@media screen {
+  body pre {
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 0px 64px 8px rgba(168,191,230,0.5);
+  }
+  body pre code {
+    color: white;
+  }
+}
+
 body pre code {
-  color: white;
   font-family: "Fira Mono";
 }
 code, samp, kbd { font-family: "Fira Mono"; }
@@ -494,7 +502,7 @@ rect:hover {stroke:#fff;}
 
 @media print {
   body { text-shadow: none; }
-  body pre code { color: #000; border: #000 dotted 1px; }
+  body pre { color: #000; border: #000 dotted 1px; }
   body pre code b { color: #000; }
   .wrap { height: auto; }
   div.step.break { page-break-before: always; }
@@ -505,19 +513,23 @@ rect:hover {stroke:#fff;}
   h2 { font-size: 0.9em; margin-top: 0}
   h3 { font-size: 0.8em; margin-bottom: 0}
   .step div.counter {
-  position: absolute;
-  float:right;
-  top: -2em;
-  right: 0;
-  font-size: 12px;
-  opacity: 0.5;
-}
+    position: absolute;
+    float:right;
+    top: -2em;
+    right: 0;
+    font-size: 12px;
+    opacity: 0.5;
+  }
 	#refs { font-size: 1em }
 	a { color: rgb(0, 67, 148) }
-	#refs a:after {
-  content: " (" attr(href) ") ";
-  font-size: 90%;
-}
+	a:after {
+    content: " (" attr(href) ") ";
+    font-size: 90%; 
+  }
+  #title a:after {
+    content: "";
+  }
+
 }
 
 
