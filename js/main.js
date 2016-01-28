@@ -1,6 +1,36 @@
 (function () {
   'use strict';
 
+  function setupProgressbar(){
+    if(! document.getElementById("progress")){
+      var div = document.createElement("DIV");
+      div.id = "progress";
+      document.body.appendChild(div);
+    }
+    var progress = document.getElementById("progress");
+
+    // cache order in a data attribute
+    var nodes = document.querySelectorAll('.step:not(#overview):not([data-support="true"])');
+    [].forEach.call(nodes, function(n, i){
+      n.dataset.progressOrder = i+1;
+    })
+    var total = nodes.length;
+
+    document.addEventListener('impress:stepenter', function(e) {
+      if (e.target.id == 'overview'){
+       progress.style.width = '0%'
+       return;
+      }
+
+      if (e.target.dataset.support == 'true') return;
+
+      var perc = parseInt(e.target.dataset.progressOrder)/total * 100;
+
+      progress.style.width =  perc + '%';
+     });
+  }
+
+
   // if we're not in print mode start impress
   if ( !window.location.search.match(/print/) ) {
 
@@ -10,9 +40,10 @@
   SVGInjector(mySVGsToInject);
 
 
-  	if (impress) {
+    if (impress) {
       try{
         impress().init();
+        setupProgressbar();
       }catch(e){
         //no impress maybe we are in ASQ
       }
@@ -28,7 +59,7 @@
             }
           }
       }, false);          
-  	}
+    }
 
     if (typeof hljs != "undefined") {
          hljs.initHighlightingOnLoad();
@@ -36,10 +67,10 @@
 
   } else {
     //show all substeps
-  	var substeps = document.querySelectorAll(".substep");
-  	Array.prototype.forEach.call(substeps,function(dom, index) {
-  		dom.classList.add("active");
-  	});
+    var substeps = document.querySelectorAll(".substep");
+    Array.prototype.forEach.call(substeps,function(dom, index) {
+      dom.classList.add("active");
+    });
 
     //we use the preview class on print
     document.body.classList.add("preview");
@@ -69,7 +100,7 @@
   }
 
   if ( window.location.search.match(/print/) ) {
-  	window.print();
+    window.print();
   } 
 
 }());
