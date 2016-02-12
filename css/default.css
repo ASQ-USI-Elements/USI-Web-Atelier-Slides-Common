@@ -371,11 +371,6 @@ body.impress-on-overview .step {
   margin-bottom: 10px;
 }
 
-.impress-not-supported {
-  background: #002570;
-  overflow: hidden;
-  padding: 0 50px;
-}
 .impress-not-supported .step {
   position: relative;
   opacity: 1;
