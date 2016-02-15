@@ -36,8 +36,10 @@
 
 
   //and inject svgs
-  var mySVGsToInject = document.querySelectorAll('img.svg');
-  SVGInjector(mySVGsToInject);
+  if(typeof SVGInjector == function){
+    var mySVGsToInject = document.querySelectorAll('img.svg');
+    SVGInjector(mySVGsToInject);
+  }
 
 
     if (impress) {
