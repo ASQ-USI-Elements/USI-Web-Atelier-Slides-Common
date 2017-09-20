@@ -2,7 +2,7 @@
   font-family: 'Fira Sans';
   font-style: normal;
   font-weight: bold;
-  src: local('Fira Sans'), url('../fonts/FiraSans-Medium.ttf') format('truetype');
+  src: local('Fira Sans Bold'), url('../fonts/FiraSans-Bold.ttf') format('truetype');
 }
 
 @font-face {
@@ -24,7 +24,7 @@
   font-family: 'Fira Mono';
   font-style: normal;
   font-weight: bold;
-  src: local('Fira Mono'), url('../fonts/FiraMono-Bold.ttf') format('truetype');
+  src: local('Fira Mono Bold'), url('../fonts/FiraMono-Bold.ttf') format('truetype');
 }
 
 @font-face {
